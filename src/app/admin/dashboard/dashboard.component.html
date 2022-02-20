@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Data Module</h4>
+                    </div>
+
+                    <div class="card-body" style="margin-block-start: 2%;">
+                        <form (ngSubmit)="create();" #modelForm="ngForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <mat-label for="file_uploaded" style="cursor:pointer;"><b>Upload file</b>
+                                        </mat-label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <input type="file" (change)="handleFileInput($event.target.files)"
+                                                id="file_uploaded" name="file_uploaded" class="form-control"
+                                                style="width: 60%;" accept=".json" required>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button mat-flat-button color="primary" type="submit"
+                                                [disabled]="run_disabled">Run</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="container">
+                        <main class="grid">
+                            <article *ngFor="let item of items">
+                                <div class="card">
+                                    <div class="card-header card-header-info">
+                                        <h4 class="card-title"> File DATA: {{item.id}}</h4>
+                                    </div>
+                                    <div class="card-body" style="margin-block-start: 2%;">
+                                        {{ item.file_data }}
+                                    </div>
+                                </div>
+                            </article>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
